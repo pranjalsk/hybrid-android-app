@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
         weatherwebview.setHorizontalScrollBarEnabled(true);
         weatherwebview.setVerticalScrollBarEnabled(true);
-        weatherwebview.setWebContentsDebuggingEnabled(true);
         weatherwebview.getSettings().setJavaScriptEnabled(true);
 
 
