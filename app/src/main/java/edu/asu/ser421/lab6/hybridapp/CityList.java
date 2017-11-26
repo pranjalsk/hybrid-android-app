@@ -33,7 +33,6 @@ public class CityList extends Activity{
     };
     ArrayList<String> citiesChecked =  new ArrayList<String>();
 
-    private JsHandler _jsHandler;
 
     /** Called when the activity is first created. */
     @Override
@@ -86,6 +85,7 @@ public class CityList extends Activity{
             @Override
             public void onClick(View arg0) {
                 Intent intent = new Intent(context, MainActivity.class);
+                intent.putExtra("stringArray",citiesChecked);
                 startActivity(intent);
             }
 

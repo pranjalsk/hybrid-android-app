@@ -105,6 +105,7 @@ function initTable(reqURL, rowid) {
 		}
 
 		function refreshData() {
+		    console.log("hello");
 			initTable("http://api.openweathermap.org/data/2.5/weather?q=Tucson&appid=f8067effab2859a4ac1d4f5637dec42b","firstcitynewrow");
             // initTable("http://localhost:8081?cityName=London","firstcitynewrow");
 
@@ -321,6 +322,7 @@ function initTable(reqURL, rowid) {
 		function populateCitiesDropdown(city1, city2, city3, city4, city5){
             var selectObj = document.getElementById("showcities");
             console.log("city1: "+city1);
+            document.getElementById("city1").innerHTML = city1;
             selectObj.options[selectObj.options.length] = new Option(city1, city1);
             selectObj.options[selectObj.options.length] = new Option(city2, city2);
             selectObj.options[selectObj.options.length] = new Option(city3, city3);
