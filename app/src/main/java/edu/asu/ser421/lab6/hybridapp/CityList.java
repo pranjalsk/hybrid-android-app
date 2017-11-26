@@ -1,37 +1,64 @@
 package edu.asu.ser421.lab6.hybridapp;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
-public class CityList extends AppCompatActivity {
+import android.widget.Toast;
+import android.util.Log;
+import java.util.ArrayList;
 
-    ListView lv;
-    Model[] modelItems;
+public class CityList extends Activity {
+    private static final String tag="mytag";
+    String[] cities = new String[] {
+            "Denver",
+            "Boston",
+            "Seattle",
+            "Chicago",
+            "Austin",
+            "Houston",
+            "Nashville",
+            "Pittsburgh",
+            "Orlando",
+            "Tampa"
+    };
+    ArrayList<String> citiesChecked =  new ArrayList<String>();
+
+    /** Called when the activity is first created. */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_list);
-        lv = (ListView) findViewById(R.id.listView1);
-        modelItems = new Model[5];
-        modelItems[0] = new Model("Denver", 0);
-        modelItems[1] = new Model("Boston", 1);
-        modelItems[2] = new Model("Seattle", 1);
-        modelItems[3] = new Model("Chicago", 0);
-        modelItems[4] = new Model("Austin", 1);
-        modelItems[5] = new Model("Houston", 0);
-        modelItems[6] = new Model("Nashville", 1);
-        modelItems[7] = new Model("Pittsburgh", 1);
-        modelItems[8] = new Model("Orlando", 0);
-        modelItems[9] = new Model("Tampa", 1);
-        CustomAdapter adapter = new CustomAdapter(this, modelItems);
-        lv.setAdapter(adapter);
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+
+        // Get the object reference of listview from the layout
+        ListView listView = ( ListView ) findViewById(R.id.listview);
+
+        // Instantiating an array adapter for listview
+        ArrayAdapter< String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, cities);
+        listView.setAdapter(adapter);
+
+        //Defining an item click listener
+        OnItemClickListener itemClickListener = new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
+                // AdapterView is the parent class of ListView
+                ListView lv = (ListView) arg0;
+                if(lv.isItemChecked(position)){
+                    citiesChecked.add(cities[position]);
+                    Toast.makeText(getBaseContext(), "You checked " + cities[position], Toast.LENGTH_SHORT).show();
+                }else{
+
+                    citiesChecked.remove(position);
+                    Toast.makeText(getBaseContext(), "You unchecked " + cities[position], Toast.LENGTH_SHORT).show();
+                }
+                Log.i(tag,citiesChecked.toString());
+            }
+        };
+
+        // Setting the ItemClickEvent listener for the listview
+        listView.setOnItemClickListener(itemClickListener);
     }
 }
-
