@@ -1,6 +1,9 @@
 package edu.asu.ser421.lab6.hybridapp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView.OnItemClickListener;
@@ -69,6 +72,11 @@ public class CityList extends Activity implements View.OnClickListener{
         // GetWeather Button
         Button btn = (Button)findViewById(R.id.getWeatherButton);
         btn.setOnClickListener(this);
+
+        //Intent to move next page
+        Intent intent=new  Intent(CityList.this,MainActivity.class);
+        startActivity(intent);
+
 
     }
 
