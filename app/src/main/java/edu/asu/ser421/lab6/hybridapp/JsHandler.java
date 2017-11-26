@@ -20,6 +20,7 @@ public class JsHandler {
 
     public void javaFnCall(String city1, String city2,String city3,String city4,String city5) {
 
+
         final String webUrl = "javascript:populateCitiesDropdown(city1,city2,city3,city4,city5)";
         // Add this to avoid android.view.windowmanager$badtokenexception unable to add window
         if(!activity.isFinishing())

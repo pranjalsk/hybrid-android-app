@@ -2,10 +2,12 @@ package edu.asu.ser421.lab6.hybridapp;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +17,7 @@ import android.widget.Toast;
 import android.util.Log;
 import java.util.ArrayList;
 
-public class CityList extends Activity implements View.OnClickListener{
+public class CityList extends Activity{
     private static final String tag="mytag";
     String[] cities = new String[] {
             "Denver",
@@ -55,11 +57,11 @@ public class CityList extends Activity implements View.OnClickListener{
                     ListView lv = (ListView) arg0;
                     if(lv.isItemChecked(position)){
                         citiesChecked.add(cities[position]);
-                        Toast.makeText(getBaseContext(), "You checked " + cities[position], Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "You checked " + cities[position], Toast.LENGTH_SHORT).show();
                     }else{
 
                         citiesChecked.remove(position);
-                        Toast.makeText(getBaseContext(), "You unchecked " + cities[position], Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "You unchecked " + cities[position], Toast.LENGTH_SHORT).show();
                     }
                     Log.i(tag,citiesChecked.toString());
                 }
@@ -77,26 +79,22 @@ public class CityList extends Activity implements View.OnClickListener{
         //------------------------------------------------------
         // GetWeather Button
         Button btn = (Button)findViewById(R.id.getWeatherButton);
-        btn.setOnClickListener(this);
 
+        final Context context = this;
+        btn.setOnClickListener(new OnClickListener() {
 
-
-
-    }
-
-    @Override
-    public void onClick(View v) {
-
-        switch (v.getId()) {
-            case R.id.getWeatherButton:
-                _jsHandler.javaFnCall(citiesChecked.get(0),citiesChecked.get(1),citiesChecked.get(2),citiesChecked.get(3),citiesChecked.get(4));
-                //Intent to move next page
-                Intent intent=new  Intent(CityList.this,MainActivity.class);
+            @Override
+            public void onClick(View arg0) {
+                Intent intent = new Intent(context, MainActivity.class);
                 startActivity(intent);
-                break;
+            }
 
-            default:
-                break;
-        }
+        });
+
+
+
+
     }
+
+
 }
