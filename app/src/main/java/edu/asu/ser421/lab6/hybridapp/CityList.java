@@ -79,9 +79,7 @@ public class CityList extends Activity implements View.OnClickListener{
         Button btn = (Button)findViewById(R.id.getWeatherButton);
         btn.setOnClickListener(this);
 
-        //Intent to move next page
-        Intent intent=new  Intent(CityList.this,MainActivity.class);
-        startActivity(intent);
+
 
 
     }
@@ -92,6 +90,9 @@ public class CityList extends Activity implements View.OnClickListener{
         switch (v.getId()) {
             case R.id.getWeatherButton:
                 _jsHandler.javaFnCall(citiesChecked.get(0),citiesChecked.get(1),citiesChecked.get(2),citiesChecked.get(3),citiesChecked.get(4));
+                //Intent to move next page
+                Intent intent=new  Intent(CityList.this,MainActivity.class);
+                startActivity(intent);
                 break;
 
             default:
