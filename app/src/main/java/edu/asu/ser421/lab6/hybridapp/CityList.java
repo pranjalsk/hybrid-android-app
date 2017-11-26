@@ -1,9 +1,7 @@
 package edu.asu.ser421.lab6.hybridapp;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 import android.util.Log;
 import java.util.ArrayList;
 
@@ -32,8 +29,6 @@ public class CityList extends Activity{
             "Tampa"
     };
     ArrayList<String> citiesChecked =  new ArrayList<String>();
-
-    private JsHandler _jsHandler;
 
     /** Called when the activity is first created. */
     @Override
@@ -75,26 +70,17 @@ public class CityList extends Activity{
         // Setting the ItemClickEvent listener for the listview
         listView.setOnItemClickListener(itemClickListener);
 
-
-        //------------------------------------------------------
         // GetWeather Button
         Button btn = (Button)findViewById(R.id.getWeatherButton);
-
-        final Context context = this;
         btn.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(CityList.this, WebviewActivity.class);
+                intent.putExtra("citiesSelected",citiesChecked);
                 startActivity(intent);
             }
-
         });
 
-
-
-
     }
-
 
 }

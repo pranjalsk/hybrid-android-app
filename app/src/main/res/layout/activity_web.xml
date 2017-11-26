@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.asu.ser421.lab6.hybridapp.MainActivity">
+    tools:context="edu.asu.ser421.lab6.hybridapp.WebviewActivity">
 
     <WebView
         android:id="@+id/weatherWebView"
