@@ -28,7 +28,7 @@ public class CityList extends Activity{
             "Orlando",
             "Tampa"
     };
-    ArrayList<String> citiesChecked =  new ArrayList<String>();
+    ArrayList<String> citiesChecked;
 
     /** Called when the activity is first created. */
     @Override
@@ -36,6 +36,7 @@ public class CityList extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_list);
 
+        citiesChecked =  new ArrayList<String>();
         // Get the object reference of listview from the layout
         ListView listView = ( ListView ) findViewById(R.id.listview);
 
