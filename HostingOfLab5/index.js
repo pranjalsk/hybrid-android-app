@@ -317,3 +317,13 @@ function initTable(reqURL, rowid) {
 			var secondCityData = localStorage.getItem("secondcity").split("|");
 			insertToTable(secondCityData[0],secondCityData[1],secondCityData[2],secondCityData[3],secondCityData[4],secondCityData[5],-1,"secondcity");
 		}
+
+		function populateCitiesDropdown(city1, city2, city3, city4, city5){
+            var selectObj = document.getElementById("showcities");
+            console.log("city1: "+city1);
+            selectObj.options[selectObj.options.length] = new Option(city1, city1);
+            selectObj.options[selectObj.options.length] = new Option(city2, city2);
+            selectObj.options[selectObj.options.length] = new Option(city3, city3);
+            selectObj.options[selectObj.options.length] = new Option(city4, city4);
+            selectObj.options[selectObj.options.length] = new Option(city5, city5);
+		}

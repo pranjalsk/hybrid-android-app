@@ -55,11 +55,11 @@ public class CityList extends Activity implements View.OnClickListener{
                     ListView lv = (ListView) arg0;
                     if(lv.isItemChecked(position)){
                         citiesChecked.add(cities[position]);
-                        Toast.makeText(getBaseContext(), "You checked " + cities[position], Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "You checked " + cities[position], Toast.LENGTH_SHORT).show();
                     }else{
 
                         citiesChecked.remove(position);
-                        Toast.makeText(getBaseContext(), "You unchecked " + cities[position], Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "You unchecked " + cities[position], Toast.LENGTH_SHORT).show();
                     }
                     Log.i(tag,citiesChecked.toString());
                 }
