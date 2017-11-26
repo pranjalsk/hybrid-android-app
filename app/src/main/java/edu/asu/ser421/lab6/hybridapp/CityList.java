@@ -51,16 +51,22 @@ public class CityList extends Activity implements View.OnClickListener{
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
                 // AdapterView is the parent class of ListView
-                ListView lv = (ListView) arg0;
-                if(lv.isItemChecked(position)){
-                    citiesChecked.add(cities[position]);
-                    Toast.makeText(getBaseContext(), "You checked " + cities[position], Toast.LENGTH_SHORT).show();
-                }else{
+                try{
+                    ListView lv = (ListView) arg0;
+                    if(lv.isItemChecked(position)){
+                        citiesChecked.add(cities[position]);
+                        Toast.makeText(getBaseContext(), "You checked " + cities[position], Toast.LENGTH_SHORT).show();
+                    }else{
 
-                    citiesChecked.remove(position);
-                    Toast.makeText(getBaseContext(), "You unchecked " + cities[position], Toast.LENGTH_SHORT).show();
+                        citiesChecked.remove(position);
+                        Toast.makeText(getBaseContext(), "You unchecked " + cities[position], Toast.LENGTH_SHORT).show();
+                    }
+                    Log.i(tag,citiesChecked.toString());
                 }
-                Log.i(tag,citiesChecked.toString());
+                catch( Exception e_){
+                    Log.i(tag, e_.getMessage());
+                }
+
             }
         };
 
