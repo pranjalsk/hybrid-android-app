@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.util.Log;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class CityList extends Activity{
@@ -43,7 +45,8 @@ public class CityList extends Activity{
         // Instantiating an array adapter for listview
         ArrayAdapter<String> adapter  = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_multiple_choice, cities);
         listView.setAdapter(adapter);
-
+        final Button btn = (Button)findViewById(R.id.getWeatherButton);
+        btn.setEnabled(false);
         //Defining an item click listener
         OnItemClickListener itemClickListener = new OnItemClickListener() {
             @Override
@@ -53,10 +56,25 @@ public class CityList extends Activity{
                     ListView lv = (ListView) arg0;
                     if(lv.isItemChecked(position)){
                         citiesChecked.add(cities[position]);
+                        if(citiesChecked.size()==5)
+                        {
+                            btn.setEnabled(true);
+                        }else if(citiesChecked.size()>5){
+                            btn.setEnabled(false);
+                            Toast.makeText(getBaseContext(), "You should select exactly 5 cities", Toast.LENGTH_LONG).show();
+                        }else{
+                            btn.setEnabled(false);
+                        }
                         //Toast.makeText(getBaseContext(), "You checked " + cities[position], Toast.LENGTH_SHORT).show();
                     }else{
-
                         citiesChecked.remove(position);
+                        if(citiesChecked.size()==5)
+                        {
+                            btn.setEnabled(true);
+                        }else{
+                            btn.setEnabled(false);
+                            Toast.makeText(getBaseContext(), "You should select exactly 5 cities", Toast.LENGTH_LONG).show();
+                        }
                         //Toast.makeText(getBaseContext(), "You unchecked " + cities[position], Toast.LENGTH_SHORT).show();
                     }
                     Log.i(tag,citiesChecked.toString());
@@ -72,13 +90,18 @@ public class CityList extends Activity{
         listView.setOnItemClickListener(itemClickListener);
 
         // GetWeather Button
-        Button btn = (Button)findViewById(R.id.getWeatherButton);
+
         btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent intent = new Intent(CityList.this, WebviewActivity.class);
-                intent.putExtra("citiesSelected",citiesChecked);
-                startActivity(intent);
+                if(citiesChecked.size()==5){
+                    Intent intent = new Intent(CityList.this, WebviewActivity.class);
+                    intent.putExtra("citiesSelected",citiesChecked);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getBaseContext(), "You should select exactly 5 cities", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
