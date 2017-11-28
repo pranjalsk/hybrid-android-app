@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/GridLayout1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:columnCount="2"
+    android:rowCount="2"
+    android:orientation="horizontal">
     <CheckBox
         android:id="@+id/chkDenver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Denver"
         android:checked="true"/>
+
+    <Button
+        android:id="@+id/btnDenver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
 
     <CheckBox
         android:id="@+id/chkChicago"
@@ -18,12 +27,24 @@
         android:text="@string/Chicago"
         android:checked="true" />
 
+    <Button
+        android:id="@+id/btnChicago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
+
     <CheckBox
         android:id="@+id/chkBoston"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Boston"
         android:checked="true"/>
+
+    <Button
+        android:id="@+id/btnBoston"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
 
     <CheckBox
         android:id="@+id/chkSeattle"
@@ -32,6 +53,12 @@
         android:text="@string/Seattle"
         android:checked="true"/>
 
+    <Button
+        android:id="@+id/btnSeattle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
+
     <CheckBox
         android:id="@+id/chkAustin"
         android:layout_width="wrap_content"
@@ -39,11 +66,23 @@
         android:text="@string/Austin"
         android:checked="true"/>
 
+    <Button
+        android:id="@+id/btnAustin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
+
     <CheckBox
         android:id="@+id/chkHouston"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Houston" />
+
+    <Button
+        android:id="@+id/btnHouston"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
 
     <CheckBox
         android:id="@+id/chkNashville"
@@ -51,17 +90,35 @@
         android:layout_height="wrap_content"
         android:text="@string/Nashville" />
 
+    <Button
+        android:id="@+id/btnNashville"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
+
     <CheckBox
         android:id="@+id/chkPittsburgh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Pittsburgh" />
 
+    <Button
+        android:id="@+id/btnPittsburgh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
+
     <CheckBox
         android:id="@+id/chkOrlando"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Orlando" />
+
+    <Button
+        android:id="@+id/btnOrlando"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
 
     <CheckBox
         android:id="@+id/chkTampa"
@@ -70,9 +127,21 @@
         android:text="@string/Tampa" />
 
     <Button
+        android:id="@+id/btnTampa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get info" />
+
+    <Button
         android:id="@+id/showWeather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Show Weather" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change" />
+
+</GridLayout>
