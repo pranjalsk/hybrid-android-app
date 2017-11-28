@@ -1,8 +1,10 @@
 package edu.asu.ser421.lab6.hybridapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -13,7 +15,7 @@ import android.content.Intent;
 import java.util.ArrayList;
 
 public class WebviewActivity extends AppCompatActivity {
-
+    private String tag = "mytag";
     WebView browser;
     ArrayList<String> citesList;
     public static String thirdCity="";
@@ -57,13 +59,15 @@ public class WebviewActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(getBaseContext(), "back button pressed", Toast.LENGTH_SHORT);
-        super.onBackPressed();
-        Intent intent = new Intent();
-        intent.putExtra("MyData", thirdCity);
-        setResult(RESULT_OK, intent);
-
+        Log.i(tag, "back button pressed");
+        //super.onBackPressed();
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",thirdCity);
+        setResult(Activity.RESULT_OK,returnIntent);
+        finish();
     }
+
+
 
     @Override
     public void onResume(){

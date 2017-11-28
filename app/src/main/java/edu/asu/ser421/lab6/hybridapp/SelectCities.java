@@ -1,8 +1,10 @@
 package edu.asu.ser421.lab6.hybridapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,7 +19,7 @@ public class SelectCities extends AppCompatActivity {
     private Button showWeather,btnDenver,btnChicago,btnBoston,btnSeattle,btnAustin,btnHouston, btnPortland,
     btnPittsburgh,btnOrlando,btnTampa;
     ArrayList<String> citiesChecked;
-
+    private String tag = "mytag";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,9 @@ public class SelectCities extends AppCompatActivity {
         chkPittsburgh = (CheckBox) findViewById(R.id.chkPittsburgh);
         chkOrlando = (CheckBox) findViewById(R.id.chkOrlando);
         chkTampa = (CheckBox) findViewById(R.id.chkTampa);
+
+
+
 
 
         showWeather = (Button) findViewById(R.id.showWeather);
@@ -82,12 +87,13 @@ public class SelectCities extends AppCompatActivity {
                 if(citiesChecked.size()==5){
                     Intent intent = new Intent(SelectCities.this, WebviewActivity.class);
                     intent.putExtra("citiesSelected",citiesChecked);
-                    startActivity(intent);
+                    startActivityForResult(intent,1);
                 }else{
                     Toast.makeText(getBaseContext(), "You should select exactly 5 cities", Toast.LENGTH_LONG).show();
                 }
             }
         });
+
 
         //-------
         btnDenver.setOnClickListener(new View.OnClickListener() {
@@ -192,18 +198,68 @@ public class SelectCities extends AppCompatActivity {
 
 
     }
-
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
         if (requestCode == 1) {
-            if(resultCode == RESULT_OK) {
-                String myStr=data.getStringExtra("MyData");
-                if(myStr.length()>0){
-                    Toast.makeText(getBaseContext(),"City is: "+myStr, Toast.LENGTH_SHORT);
-                }else{
-                    Toast.makeText(getBaseContext(),"No city came", Toast.LENGTH_SHORT);
-                }
+            if(resultCode == Activity.RESULT_OK){
+                Log.i(tag, "inside if");
+                String result=data.getStringExtra("result");
+                cityDisable(result);
+                Log.i(tag, result);
             }
+            else if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+                Log.i(tag, "inside result cancelled");
+            }else{
+                Log.i(tag, "nothing came");
+            }
+
         }
+    }
+    public void cityDisable(String cityname){
+        chkDenver.setEnabled(true);
+        chkChicago.setEnabled(true);
+        chkBoston.setEnabled(true);
+        chkSeattle.setEnabled(true);
+        chkAustin.setEnabled(true);
+        chkHouston.setEnabled(true);
+        chkPortland.setEnabled(true);
+        chkPittsburgh.setEnabled(true);
+        chkOrlando.setEnabled(true);
+        chkTampa.setEnabled(true);
+        switch (cityname){
+            case "Denver":
+                chkDenver.setEnabled(false);
+                break;
+            case "Chicago":
+                chkChicago.setEnabled(false);
+                break;
+            case "Boston":
+                chkBoston.setEnabled(false);
+                break;
+            case "Seattle":
+                chkSeattle.setEnabled(false);
+                break;
+            case "Austin":
+                chkAustin.setEnabled(false);
+                break;
+            case "Houston":
+                chkHouston.setEnabled(false);
+                break;
+            case "Portland":
+                chkPortland.setEnabled(false);
+                break;
+            case "Pittsburgh":
+                chkPittsburgh.setEnabled(false);
+                break;
+            case "Orlando":
+                chkOrlando.setEnabled(false);
+                break;
+            case "Tampa":
+                chkTampa.setEnabled(false);
+                break;
+        }
+
     }
 }
