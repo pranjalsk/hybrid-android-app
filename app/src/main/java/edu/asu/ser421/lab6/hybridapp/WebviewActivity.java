@@ -43,6 +43,7 @@ public class WebviewActivity extends AppCompatActivity {
         browser.setWebViewClient(new WebViewClient() {
             public void onPageFinished(WebView view, String url) {
                 browser.evaluateJavascript("populateCitiesDropdown(\""+citesList.get(0)+"\",\"" + citesList.get(1) + "\",\"" + citesList.get(2) + "\",\"" + citesList.get(3) + "\",\"" + citesList.get(4) + "\")", null);
+                browser.evaluateJavascript("selectedThirdCity(\""+citesList.get(0)+"\")",null);
             }
         });
 

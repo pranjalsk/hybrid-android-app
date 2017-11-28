@@ -1,9 +1,11 @@
+
 function initTable(reqURL, rowid) {
   			var xhttp = new XMLHttpRequest();
 
   			xhttp.onreadystatechange = function() {
 
     			if (xhttp.readyState === 4 && xhttp.status === 200) {
+    			console.log("inside init table");
     				var response = JSON.parse(xhttp.responseText);
       				var cityName = response.name + "," + response.sys.country;
       				var timestamp = response.dt;
@@ -95,6 +97,7 @@ function initTable(reqURL, rowid) {
 		}
 
 		function populateThirdCity(that) {
+		    console.log("that.value: "+that.value);
 			if (document.getElementById('thirdcity') != null) {
 				document.getElementById('thirdcity').parentNode.removeChild(document.getElementById('thirdcity'));
 			}
@@ -299,7 +302,9 @@ function initTable(reqURL, rowid) {
 			if(c < 60 && c > 30)
 				score++;
 			return score;
-		}		
+		}
+        var thirdcity = "";
+
 
 		if (localStorage.getItem("firstcity") === null) {
 			initTable("http://api.openweathermap.org/data/2.5/weather?q=Tucson&appid=f8067effab2859a4ac1d4f5637dec42b","firstcity");
@@ -318,6 +323,21 @@ function initTable(reqURL, rowid) {
 			insertToTable(secondCityData[0],secondCityData[1],secondCityData[2],secondCityData[3],secondCityData[4],secondCityData[5],-1,"secondcity");
 		}
 
+        function selectedThirdCity(cityname){
+                    thirdcity = cityname;
+                    console.log("city third: "+thirdcity);
+                    if (localStorage.getItem("thirdcity") === null){
+                        console.log("inside if: ");
+
+                        initTable("http://api.openweathermap.org/data/2.5/weather?q="+thirdcity+"&appid=f8067effab2859a4ac1d4f5637dec42b", "thirdcity");
+                    		}else{
+
+                    		   var thirdCityData = localStorage.getItem("thirdcity").split("|");
+                    		   console.log("inside else: "+thirdCityData[0]);
+                               insertToTable(thirdCityData[0],thirdCityData[1],thirdCityData[2],thirdCityData[3],thirdCityData[4],thirdCityData[5],-1,"thirdcity");
+                    		}
+        }
+
 		function populateCitiesDropdown(city1, city2, city3, city4, city5){
             var selectObj = document.getElementById("showcities");
             console.log("city1: "+city1);
@@ -327,6 +347,8 @@ function initTable(reqURL, rowid) {
             selectObj.options[selectObj.options.length] = new Option(city4, city4);
             selectObj.options[selectObj.options.length] = new Option(city5, city5);
 		}
+
+
 
 		function getThirdCity(){
 		    var thirdcity = "";
