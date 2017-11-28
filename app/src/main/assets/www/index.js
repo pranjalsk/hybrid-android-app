@@ -336,6 +336,7 @@ function initTable(reqURL, rowid) {
                     		   console.log("inside else: "+thirdCityData[0]);
                                insertToTable(thirdCityData[0],thirdCityData[1],thirdCityData[2],thirdCityData[3],thirdCityData[4],thirdCityData[5],-1,"thirdcity");
                     		}
+                    Android.getThirdCity(thirdcity);
         }
 
 		function populateCitiesDropdown(city1, city2, city3, city4, city5){

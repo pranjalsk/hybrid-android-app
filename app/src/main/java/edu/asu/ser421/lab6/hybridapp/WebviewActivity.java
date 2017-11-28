@@ -1,5 +1,6 @@
 package edu.asu.ser421.lab6.hybridapp;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebChromeClient;
@@ -15,7 +16,7 @@ public class WebviewActivity extends AppCompatActivity {
 
     WebView browser;
     ArrayList<String> citesList;
-    String thirdCity="";
+    public static String thirdCity="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,21 +48,16 @@ public class WebviewActivity extends AppCompatActivity {
             }
         });
 
-
+        browser.addJavascriptInterface(new WebAppInterface(this.getApplicationContext()), "Android");
         browser.loadUrl("file:///android_asset/www/index.html");
-        browser.addJavascriptInterface(this, "android");
-        browser.loadUrl("javascript:android.onData(getThirdCity)");
 
 
     }
 
-    @JavascriptInterface
-    public void onData(String value) {
-        thirdCity = value;
-    }
 
     @Override
     public void onBackPressed() {
+        Toast.makeText(getBaseContext(), "back button pressed", Toast.LENGTH_SHORT);
         super.onBackPressed();
         Intent intent = new Intent();
         intent.putExtra("MyData", thirdCity);
@@ -74,5 +70,19 @@ public class WebviewActivity extends AppCompatActivity {
         super.onResume();
         Toast.makeText(getBaseContext(), "inside resume", Toast.LENGTH_SHORT);
 
+    }
+}
+
+class WebAppInterface {
+    private Context mContext;
+
+    WebAppInterface(Context c) {
+        mContext = c;
+    }
+
+    @JavascriptInterface
+    public void getThirdCity(String name) {
+        WebviewActivity.thirdCity = name;
+        Toast.makeText(mContext.getApplicationContext(), "ThirdCIty: "+WebviewActivity.thirdCity, Toast.LENGTH_LONG).show();
     }
 }
