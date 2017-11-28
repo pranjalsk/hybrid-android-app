@@ -1,5 +1,6 @@
 package edu.asu.ser421.lab6.hybridapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -63,7 +64,15 @@ public class SelectCities extends AppCompatActivity {
                 if(chkTampa.isChecked()) citiesChecked.add("Tampa");
 
                 Toast.makeText(SelectCities.this, citiesChecked.toString(),
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_SHORT).show();
+
+                if(citiesChecked.size()==5){
+                    Intent intent = new Intent(SelectCities.this, WebviewActivity.class);
+                    intent.putExtra("citiesSelected",citiesChecked);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getBaseContext(), "You should select exactly 5 cities", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
