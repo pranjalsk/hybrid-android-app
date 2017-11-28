@@ -34,6 +34,7 @@ public class WebviewActivity extends AppCompatActivity {
         webSettings.setAllowUniversalAccessFromFileURLs(true);
         webSettings.setDomStorageEnabled(true);
 
+
         //collect data coming from previous activity
         citesList = (ArrayList<String>) getIntent().getSerializableExtra("citiesSelected");
         System.out.println("cities: "+citesList.toString());

@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">HybridApp</string>
     <string name="action_settings">Settings</string>
+    <string name="Denver">Denver</string>
+    <string name="Boston">Boston</string>
+    <string name="Seattle">Seattle</string>
+    <string name="Chicago">Chicago</string>
+    <string name="Austin">Austin</string>
+    <string name="Houston">Houston</string>
+    <string name="Nashville">Nashville</string>
+    <string name="Pittsburgh">Pittsburgh</string>
+    <string name="Orlando">Orlando</string>
+    <string name="Tampa">Tampa</string>
 </resources>
