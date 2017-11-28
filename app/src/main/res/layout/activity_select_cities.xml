@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <CheckBox
+        android:id="@+id/chkDenver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Denver"
+        android:checked="true"/>
+
+    <CheckBox
+        android:id="@+id/chkChicago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Chicago"
+        android:checked="true" />
+
+    <CheckBox
+        android:id="@+id/chkBoston"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Boston"
+        android:checked="true"/>
+
+    <CheckBox
+        android:id="@+id/chkSeattle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Seattle"
+        android:checked="true"/>
+
+    <CheckBox
+        android:id="@+id/chkAustin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Austin"
+        android:checked="true"/>
+
+    <CheckBox
+        android:id="@+id/chkHouston"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Houston" />
+
+    <CheckBox
+        android:id="@+id/chkNashville"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Nashville" />
+
+    <CheckBox
+        android:id="@+id/chkPittsburgh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Pittsburgh" />
+
+    <CheckBox
+        android:id="@+id/chkOrlando"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Orlando" />
+
+    <CheckBox
+        android:id="@+id/chkTampa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Tampa" />
+
+    <Button
+        android:id="@+id/showWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Weather" />
+
+</LinearLayout>
