@@ -14,7 +14,8 @@ public class SelectCities extends AppCompatActivity {
 
     private CheckBox chkDenver, chkChicago, chkBoston,chkSeattle,chkAustin,chkHouston,chkNashville,
             chkPittsburgh,chkOrlando,chkTampa;
-    private Button showWeather;
+    private Button showWeather,btnDenver,btnChicago,btnBoston,btnSeattle,btnAustin,btnHouston,btnNashville,
+    btnPittsburgh,btnOrlando,btnTampa;
     ArrayList<String> citiesChecked;
 
     @Override
@@ -42,6 +43,18 @@ public class SelectCities extends AppCompatActivity {
 
 
         showWeather = (Button) findViewById(R.id.showWeather);
+
+        btnDenver = (Button) findViewById(R.id.btnDenver);
+        btnChicago = (Button) findViewById(R.id.btnChicago);
+        btnBoston = (Button) findViewById(R.id.btnBoston);
+        btnSeattle = (Button) findViewById(R.id.btnSeattle);
+        btnAustin = (Button) findViewById(R.id.btnAustin);
+        btnHouston = (Button) findViewById(R.id.btnHouston);
+        btnNashville = (Button) findViewById(R.id.btnNashville);
+        btnPittsburgh = (Button) findViewById(R.id.btnPittsburgh);
+        btnOrlando = (Button) findViewById(R.id.btnOrlando);
+        btnTampa = (Button) findViewById(R.id.btnTampa);
+
 
 
 
@@ -75,6 +88,108 @@ public class SelectCities extends AppCompatActivity {
                 }
             }
         });
+
+        //-------
+        btnDenver.setOnClickListener(new View.OnClickListener() {
+            //Run when button is clicked
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
+                    intent.putExtra("cityName","Denver-Colorado");
+                    startActivity(intent);
+            }
+        });
+
+        btnChicago.setOnClickListener(new View.OnClickListener() {
+            //Run when button is clicked
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
+                intent.putExtra("cityName","Chicago-Illinois");
+                startActivity(intent);
+            }
+        });
+
+        btnBoston.setOnClickListener(new View.OnClickListener() {
+            //Run when button is clicked
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
+                intent.putExtra("cityName","Boston-Massachusetts");
+                startActivity(intent);
+            }
+        });
+
+        btnSeattle.setOnClickListener(new View.OnClickListener() {
+            //Run when button is clicked
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
+                intent.putExtra("cityName","Seattle-Washington");
+                startActivity(intent);
+            }
+        });
+
+        btnAustin.setOnClickListener(new View.OnClickListener() {
+            //Run when button is clicked
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
+                intent.putExtra("cityName","Austin-Texas");
+                startActivity(intent);
+            }
+        });
+
+        btnHouston.setOnClickListener(new View.OnClickListener() {
+            //Run when button is clicked
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
+                intent.putExtra("cityName","Houston-Texas");
+                startActivity(intent);
+            }
+        });
+
+        btnNashville.setOnClickListener(new View.OnClickListener() {
+            //Run when button is clicked
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
+                intent.putExtra("cityName","Nashville-Davidson-Tennessee");
+                startActivity(intent);
+            }
+        });
+
+        btnPittsburgh.setOnClickListener(new View.OnClickListener() {
+            //Run when button is clicked
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
+                intent.putExtra("cityName","Pittsburgh-Pennsylvania");
+                startActivity(intent);
+            }
+        });
+
+        btnOrlando.setOnClickListener(new View.OnClickListener() {
+            //Run when button is clicked
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
+                intent.putExtra("cityName","Orlando-Florida");
+                startActivity(intent);
+            }
+        });
+
+        btnTampa.setOnClickListener(new View.OnClickListener() {
+            //Run when button is clicked
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
+                intent.putExtra("cityName","Tampa-Florida");
+                startActivity(intent);
+            }
+        });
+
 
     }
 }
