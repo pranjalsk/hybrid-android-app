@@ -85,13 +85,13 @@
         android:text="Get info" />
 
     <CheckBox
-        android:id="@+id/chkNashville"
+        android:id="@+id/chkPortland"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Nashville" />
+        android:text="@string/Portland" />
 
     <Button
-        android:id="@+id/btnNashville"
+        android:id="@+id/btnPortland"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get info" />

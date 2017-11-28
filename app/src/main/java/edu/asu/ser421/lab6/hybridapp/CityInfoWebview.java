@@ -12,11 +12,32 @@ import java.util.ArrayList;
 public class CityInfoWebview extends AppCompatActivity {
 
     WebView browser;
+    String cityUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_info_webview);
+
+        browser = (WebView) findViewById(R.id.cityInfoWebView);
+
+        browser.setWebContentsDebuggingEnabled(true);
+
+        browser.setWebChromeClient(new WebChromeClient());
+
+        // enable JS
+        WebSettings webSettings = browser.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setAllowUniversalAccessFromFileURLs(true);
+        webSettings.setDomStorageEnabled(true);
+
+
+        //collect data coming from previous activity
+        cityUrl = getIntent().getStringExtra("cityName");
+        System.out.println("cities: "+cityUrl);
+
+
+        browser.loadUrl("http://www.city-data.com/cityw/"+cityUrl+".html");
 
     }
 }
