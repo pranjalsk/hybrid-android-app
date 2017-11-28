@@ -23,11 +23,11 @@ public class CityInfoWebview extends AppCompatActivity {
 
         browser.setWebContentsDebuggingEnabled(true);
 
-        browser.setWebChromeClient(new WebChromeClient());
+        browser.setWebViewClient(new CustomWebViewClient());
 
         // enable JS
         WebSettings webSettings = browser.getSettings();
-        webSettings.setJavaScriptEnabled(true);
+        webSettings.setJavaScriptEnabled(false);
         webSettings.setAllowUniversalAccessFromFileURLs(true);
         webSettings.setDomStorageEnabled(true);
 
@@ -39,5 +39,11 @@ public class CityInfoWebview extends AppCompatActivity {
 
         browser.loadUrl("http://www.city-data.com/cityw/"+cityUrl+".html");
 
+    }
+}
+class CustomWebViewClient extends WebViewClient {
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        return true;
     }
 }

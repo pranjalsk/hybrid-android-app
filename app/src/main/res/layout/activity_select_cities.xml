@@ -18,7 +18,7 @@
         android:id="@+id/btnDenver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get info" />
+        android:text="Info" />
 
     <CheckBox
         android:id="@+id/chkChicago"
@@ -31,7 +31,7 @@
         android:id="@+id/btnChicago"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get info" />
+        android:text="Info" />
 
     <CheckBox
         android:id="@+id/chkBoston"
@@ -44,7 +44,7 @@
         android:id="@+id/btnBoston"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get info" />
+        android:text="Info" />
 
     <CheckBox
         android:id="@+id/chkSeattle"
@@ -57,7 +57,7 @@
         android:id="@+id/btnSeattle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get info" />
+        android:text="Info" />
 
     <CheckBox
         android:id="@+id/chkAustin"
@@ -70,7 +70,7 @@
         android:id="@+id/btnAustin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get info" />
+        android:text="Info" />
 
     <CheckBox
         android:id="@+id/chkHouston"
@@ -82,7 +82,7 @@
         android:id="@+id/btnHouston"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get info" />
+        android:text="Info" />
 
     <CheckBox
         android:id="@+id/chkPortland"
@@ -94,7 +94,7 @@
         android:id="@+id/btnPortland"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get info" />
+        android:text="Info" />
 
     <CheckBox
         android:id="@+id/chkPittsburgh"
@@ -106,7 +106,7 @@
         android:id="@+id/btnPittsburgh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get info" />
+        android:text="Info" />
 
     <CheckBox
         android:id="@+id/chkOrlando"
@@ -118,7 +118,7 @@
         android:id="@+id/btnOrlando"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get info" />
+        android:text="Info" />
 
     <CheckBox
         android:id="@+id/chkTampa"
@@ -130,7 +130,7 @@
         android:id="@+id/btnTampa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get info" />
+        android:text="Info" />
 
     <Button
         android:id="@+id/showWeather"
