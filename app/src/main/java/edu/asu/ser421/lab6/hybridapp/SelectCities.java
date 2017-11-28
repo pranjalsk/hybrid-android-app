@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 public class SelectCities extends AppCompatActivity {
 
-    private CheckBox chkDenver, chkChicago, chkBoston,chkSeattle,chkAustin,chkHouston,chkNashville,
+    private CheckBox chkDenver, chkChicago, chkBoston,chkSeattle,chkAustin,chkHouston, chkPortland,
             chkPittsburgh,chkOrlando,chkTampa;
-    private Button showWeather,btnDenver,btnChicago,btnBoston,btnSeattle,btnAustin,btnHouston,btnNashville,
+    private Button showWeather,btnDenver,btnChicago,btnBoston,btnSeattle,btnAustin,btnHouston, btnPortland,
     btnPittsburgh,btnOrlando,btnTampa;
     ArrayList<String> citiesChecked;
 
@@ -36,7 +36,7 @@ public class SelectCities extends AppCompatActivity {
         chkSeattle = (CheckBox) findViewById(R.id.chkSeattle);
         chkAustin = (CheckBox) findViewById(R.id.chkAustin);
         chkHouston = (CheckBox) findViewById(R.id.chkHouston);
-        chkNashville = (CheckBox) findViewById(R.id.chkNashville);
+        chkPortland = (CheckBox) findViewById(R.id.chkPortland);
         chkPittsburgh = (CheckBox) findViewById(R.id.chkPittsburgh);
         chkOrlando = (CheckBox) findViewById(R.id.chkOrlando);
         chkTampa = (CheckBox) findViewById(R.id.chkTampa);
@@ -50,7 +50,7 @@ public class SelectCities extends AppCompatActivity {
         btnSeattle = (Button) findViewById(R.id.btnSeattle);
         btnAustin = (Button) findViewById(R.id.btnAustin);
         btnHouston = (Button) findViewById(R.id.btnHouston);
-        btnNashville = (Button) findViewById(R.id.btnNashville);
+        btnPortland = (Button) findViewById(R.id.btnPortland);
         btnPittsburgh = (Button) findViewById(R.id.btnPittsburgh);
         btnOrlando = (Button) findViewById(R.id.btnOrlando);
         btnTampa = (Button) findViewById(R.id.btnTampa);
@@ -71,7 +71,7 @@ public class SelectCities extends AppCompatActivity {
                 if(chkSeattle.isChecked()) citiesChecked.add("Seattle");
                 if(chkAustin.isChecked()) citiesChecked.add("Austin");
                 if(chkHouston.isChecked()) citiesChecked.add("Houston");
-                if(chkNashville.isChecked()) citiesChecked.add("Nashville");
+                if(chkPortland.isChecked()) citiesChecked.add("Portland");
                 if(chkPittsburgh.isChecked()) citiesChecked.add("Pittsburgh");
                 if(chkOrlando.isChecked()) citiesChecked.add("Orlando");
                 if(chkTampa.isChecked()) citiesChecked.add("Tampa");
@@ -95,7 +95,7 @@ public class SelectCities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
-                    intent.putExtra("cityName","Denver-Colorado");
+                    intent.putExtra("cityName","Denver-CO");
                     startActivity(intent);
             }
         });
@@ -105,7 +105,7 @@ public class SelectCities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
-                intent.putExtra("cityName","Chicago-Illinois");
+                intent.putExtra("cityName","Chicago-IL");
                 startActivity(intent);
             }
         });
@@ -115,7 +115,7 @@ public class SelectCities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
-                intent.putExtra("cityName","Boston-Massachusetts");
+                intent.putExtra("cityName","Boston-MA");
                 startActivity(intent);
             }
         });
@@ -125,7 +125,7 @@ public class SelectCities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
-                intent.putExtra("cityName","Seattle-Washington");
+                intent.putExtra("cityName","Seattle-WA");
                 startActivity(intent);
             }
         });
@@ -135,7 +135,7 @@ public class SelectCities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
-                intent.putExtra("cityName","Austin-Texas");
+                intent.putExtra("cityName","Austin-TX");
                 startActivity(intent);
             }
         });
@@ -145,17 +145,17 @@ public class SelectCities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
-                intent.putExtra("cityName","Houston-Texas");
+                intent.putExtra("cityName","Houston-TX");
                 startActivity(intent);
             }
         });
 
-        btnNashville.setOnClickListener(new View.OnClickListener() {
+        btnPortland.setOnClickListener(new View.OnClickListener() {
             //Run when button is clicked
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
-                intent.putExtra("cityName","Nashville-Davidson-Tennessee");
+                intent.putExtra("cityName","Portland-OR");
                 startActivity(intent);
             }
         });
@@ -165,7 +165,7 @@ public class SelectCities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
-                intent.putExtra("cityName","Pittsburgh-Pennsylvania");
+                intent.putExtra("cityName","Pittsburgh-PA");
                 startActivity(intent);
             }
         });
@@ -175,7 +175,7 @@ public class SelectCities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
-                intent.putExtra("cityName","Orlando-Florida");
+                intent.putExtra("cityName","Orlando-FL");
                 startActivity(intent);
             }
         });
@@ -185,7 +185,7 @@ public class SelectCities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelectCities.this, CityInfoWebview.class);
-                intent.putExtra("cityName","Tampa-Florida");
+                intent.putExtra("cityName","Tampa-FL");
                 startActivity(intent);
             }
         });
