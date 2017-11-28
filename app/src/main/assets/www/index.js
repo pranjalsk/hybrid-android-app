@@ -327,3 +327,11 @@ function initTable(reqURL, rowid) {
             selectObj.options[selectObj.options.length] = new Option(city4, city4);
             selectObj.options[selectObj.options.length] = new Option(city5, city5);
 		}
+
+		function getThirdCity(){
+		    var thirdcity = "";
+		    if (document.getElementById('thirdcity') != null) {
+            	thirdcity = document.getElementById("thirdcity");
+            }
+            return thirdcity;
+		}

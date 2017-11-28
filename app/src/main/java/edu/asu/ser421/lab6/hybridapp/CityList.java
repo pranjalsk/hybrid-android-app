@@ -106,5 +106,22 @@ public class CityList extends Activity{
         });
 
     }
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK) {
+                String myStr=data.getStringExtra("MyData");
+                if(myStr.length()>0){
+                    Toast.makeText(getBaseContext(),"City is: "+myStr, Toast.LENGTH_SHORT);
+                }else{
+                    Toast.makeText(getBaseContext(),"No city came", Toast.LENGTH_SHORT);
+                }
+            }
+        }
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        Toast.makeText(getBaseContext(), "inside resume", Toast.LENGTH_SHORT);
+    }
 }
