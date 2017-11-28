@@ -25,10 +25,9 @@ public class CityInfoWebview extends AppCompatActivity {
 
         browser.setWebViewClient(new CustomWebViewClient());
 
-
         // enable JS
         WebSettings webSettings = browser.getSettings();
-
+        webSettings.setJavaScriptEnabled(false);
         webSettings.setAllowUniversalAccessFromFileURLs(true);
         webSettings.setDomStorageEnabled(true);
 
