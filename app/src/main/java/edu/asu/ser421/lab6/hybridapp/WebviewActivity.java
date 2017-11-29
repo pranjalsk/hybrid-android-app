@@ -79,12 +79,9 @@ public class WebviewActivity extends AppCompatActivity {
     public void onDestroy()
     {
         super.onDestroy();
+        System.out.println("Inside kill");
+        //browser.evaluateJavascript("clearLocalStorage()",null);
         //Do whatever you want to do when the application is destroyed.
-        browser.setWebViewClient(new WebViewClient() {
-            public void onPageFinished(WebView view, String url) {
-                browser.evaluateJavascript("clearLocalStorage()",null);
-            }
-        });
     }
 }
 

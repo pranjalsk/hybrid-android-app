@@ -1,6 +1,8 @@
 function clearLocalStorage(){
+console.log("Inside locl stg clr");
     localStorage.clear();
 }
+//localStorage.clear();
 function initTable(reqURL, rowid) {
   			var xhttp = new XMLHttpRequest();
 
@@ -331,17 +333,18 @@ function initTable(reqURL, rowid) {
                     if (localStorage.getItem("thirdcity") === null){
                         console.log("inside if: ");
 
-                        initTable("http://api.openweathermap.org/data/2.5/weather?q="+thirdcity+"&appid=f8067effab2859a4ac1d4f5637dec42b", "thirdcity");
+                        //initTable("http://api.openweathermap.org/data/2.5/weather?q="+thirdcity+"&appid=f8067effab2859a4ac1d4f5637dec42b", "thirdcity");
                     		}else{
 
                     		   var thirdCityData = localStorage.getItem("thirdcity").split("|");
                     		   console.log("inside else: "+thirdCityData[0]);
                                insertToTable(thirdCityData[0],thirdCityData[1],thirdCityData[2],thirdCityData[3],thirdCityData[4],thirdCityData[5],-1,"thirdcity");
                     		}
-                    Android.getThirdCity(thirdcity);
+                    //Android.getThirdCity(thirdcity);
         }
 
 		function populateCitiesDropdown(city1, city2, city3, city4, city5){
+		    document.getElementById("showcities").innerHTML = "";
             var selectObj = document.getElementById("showcities");
             console.log("city1: "+city1);
             selectObj.options[selectObj.options.length] = new Option(city1, city1);
