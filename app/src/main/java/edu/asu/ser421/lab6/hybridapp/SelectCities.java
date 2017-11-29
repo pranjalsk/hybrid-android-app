@@ -18,7 +18,7 @@ public class SelectCities extends AppCompatActivity {
             chkPittsburgh,chkOrlando,chkTampa;
     private Button showWeather,btnChange,btnDenver,btnChicago,btnBoston,btnSeattle,btnAustin,btnHouston, btnPortland,
     btnPittsburgh,btnOrlando,btnTampa;
-    ArrayList<String> citiesChecked;
+    ArrayList<String> citiesChecked, currentcities;
     private String tag = "mytag";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class SelectCities extends AppCompatActivity {
     }
 
     public void addListenerOnButton() {
-
+        currentcities = new ArrayList<String>();
         citiesChecked =  new ArrayList<String>();
 
         chkDenver = (CheckBox) findViewById(R.id.chkDenver);
@@ -59,7 +59,7 @@ public class SelectCities extends AppCompatActivity {
         citiesChecked.add("Boston");
         citiesChecked.add("Seattle");
         citiesChecked.add("Austin");
-
+        currentcities = citiesChecked;
 
 
 
@@ -83,6 +83,7 @@ public class SelectCities extends AppCompatActivity {
             //Run when button is clicked
             @Override
             public void onClick(View v) {
+
                 citiesChecked =  new ArrayList<String>();
                 if(chkDenver.isChecked()) citiesChecked.add("Denver");
                 if(chkChicago.isChecked()) citiesChecked.add("Chicago");
@@ -97,7 +98,10 @@ public class SelectCities extends AppCompatActivity {
 
                 Toast.makeText(SelectCities.this, citiesChecked.toString(),
                         Toast.LENGTH_SHORT).show();
-                if(citiesChecked.size() !=5){
+                if(citiesChecked.size() == 5){
+                    currentcities = citiesChecked;
+
+                }else{
                     Toast.makeText(getBaseContext(), "You should select exactly 5 cities", Toast.LENGTH_LONG).show();
                 }
         }
@@ -108,12 +112,12 @@ public class SelectCities extends AppCompatActivity {
             //Run when button is clicked
             @Override
             public void onClick(View v) {
-                if(citiesChecked.size()==5){
+                if(currentcities.size()==5){
                     Intent intent = new Intent(SelectCities.this, WebviewActivity.class);
-                    intent.putExtra("citiesSelected",citiesChecked);
+                    intent.putExtra("citiesSelected",currentcities);
                     startActivityForResult(intent,1);
                 }else{
-                    Toast.makeText(getBaseContext(), "You should select exactly 5 cities", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "You should select exactly 5 cities in show weather:- "+ currentcities.size(), Toast.LENGTH_LONG).show();
                 }
             }
         });
