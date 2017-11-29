@@ -75,13 +75,10 @@ public class WebviewActivity extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "inside resume", Toast.LENGTH_SHORT);
     }
 
-    @Override
-    public void onDestroy()
+
+    public void clearStorage()
     {
-        super.onDestroy();
-        System.out.println("Inside kill");
-        //browser.evaluateJavascript("clearLocalStorage()",null);
-        //Do whatever you want to do when the application is destroyed.
+        browser.evaluateJavascript("clearLocalStorage()",null);
     }
 }
 

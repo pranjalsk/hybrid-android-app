@@ -28,6 +28,17 @@ public class SelectCities extends AppCompatActivity {
         addListenerOnButton();
     }
 
+    public void onDestroy()
+    {
+        super.onDestroy();
+        WebviewActivity webAct = new WebviewActivity();
+        System.out.println("Inside kill");
+        webAct.clearStorage();
+
+        //browser.evaluateJavascript("clearLocalStorage()",null);
+        //Do whatever you want to do when the application is destroyed.
+    }
+
     public void addListenerOnButton() {
 
         citiesChecked =  new ArrayList<String>();
