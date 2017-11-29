@@ -6,9 +6,24 @@ function initTable(reqURL, rowid) {
   			var xhttp = new XMLHttpRequest();
 
   			xhttp.onreadystatechange = function() {
+                if ((xhttp.readyState == 4) && (xhttp.status >= 400 && xhttp.status < 500)) {
 
+                    if (xhttp.status == 404) document.getElementById("error-placholder").innerHTML = "404: Resource Not Found.";
+                    else if (xhttp.status == 400) document.getElementById("error-placholder").innerHTML = "400: Bad Request.";
+                    else if (xhttp.status == 401) document.getElementById("error-placholder").innerHTML = "401: Unauthorized.";
+                    else if (xhttp.status == 403) document.getElementById("error-placholder").innerHTML = "403: Forbidden.";
+                    else if (xhttp.status == 409) document.getElementById("error-placholder").innerHTML = "409: Conflict.";
+                    else document.getElementById("error-placholder").innerHTML = xhttp.status + ":Client Error.";
+
+                } else if ((xhttp.readyState == 4) && (xhttp.status >= 500 && xhttp.status < 600)) {
+
+                    if (xhttp.status == 500) document.getElementById("error-placholder").innerHTML = "500: Internal Server Error.";
+                    else if (xhttp.status == 501) document.getElementById("error-placholder").innerHTML = "501: Not Implemented.";
+                    else if (xhttp.status == 502) document.getElementById("error-placholder").innerHTML = "502: Bad Gateway.";
+                    document.getElementById("error-placholder").innerHTML = xhttp.status + ":Server error.";
+                }
     			if (xhttp.readyState === 4 && xhttp.status === 200) {
-    			console.log("inside init table");
+    			    console.log("inside init table");
     				var response = JSON.parse(xhttp.responseText);
       				var cityName = response.name + "," + response.sys.country;
       				var timestamp = response.dt;
