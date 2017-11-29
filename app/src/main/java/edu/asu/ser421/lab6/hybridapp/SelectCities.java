@@ -28,12 +28,13 @@ public class SelectCities extends AppCompatActivity {
         addListenerOnButton();
     }
 
+    @Override
     public void onDestroy()
     {
         super.onDestroy();
         WebviewActivity webAct = new WebviewActivity();
         System.out.println("Inside kill");
-        webAct.clearStorage();
+        webAct.browser.evaluateJavascript("clearLocalStorage()",null);
 
         //browser.evaluateJavascript("clearLocalStorage()",null);
         //Do whatever you want to do when the application is destroyed.
@@ -53,12 +54,17 @@ public class SelectCities extends AppCompatActivity {
         chkPittsburgh = (CheckBox) findViewById(R.id.chkPittsburgh);
         chkOrlando = (CheckBox) findViewById(R.id.chkOrlando);
         chkTampa = (CheckBox) findViewById(R.id.chkTampa);
-
+        citiesChecked.add("Denver");
+        citiesChecked.add("Chicago");
+        citiesChecked.add("Boston");
+        citiesChecked.add("Seattle");
+        citiesChecked.add("Austin");
 
 
 
 
         showWeather = (Button) findViewById(R.id.showWeather);
+        btnChange = (Button) findViewById(R.id.change);
 
         btnDenver = (Button) findViewById(R.id.btnDenver);
         btnChicago = (Button) findViewById(R.id.btnChicago);
@@ -72,21 +78,29 @@ public class SelectCities extends AppCompatActivity {
         btnTampa = (Button) findViewById(R.id.btnTampa);
 
 
-        btnChange.setOnClickListener({
-                citiesChecked =  new ArrayList<String>();
-        if(chkDenver.isChecked()) citiesChecked.add("Denver");
-        if(chkChicago.isChecked()) citiesChecked.add("Chicago");
-        if(chkBoston.isChecked()) citiesChecked.add("Boston");
-        if(chkSeattle.isChecked()) citiesChecked.add("Seattle");
-        if(chkAustin.isChecked()) citiesChecked.add("Austin");
-        if(chkHouston.isChecked()) citiesChecked.add("Houston");
-        if(chkPortland.isChecked()) citiesChecked.add("Portland");
-        if(chkPittsburgh.isChecked()) citiesChecked.add("Pittsburgh");
-        if(chkOrlando.isChecked()) citiesChecked.add("Orlando");
-        if(chkTampa.isChecked()) citiesChecked.add("Tampa");
+        btnChange.setOnClickListener(new View.OnClickListener() {
 
-        Toast.makeText(SelectCities.this, citiesChecked.toString(),
-                Toast.LENGTH_SHORT).show();
+            //Run when button is clicked
+            @Override
+            public void onClick(View v) {
+                citiesChecked =  new ArrayList<String>();
+                if(chkDenver.isChecked()) citiesChecked.add("Denver");
+                if(chkChicago.isChecked()) citiesChecked.add("Chicago");
+                if(chkBoston.isChecked()) citiesChecked.add("Boston");
+                if(chkSeattle.isChecked()) citiesChecked.add("Seattle");
+                if(chkAustin.isChecked()) citiesChecked.add("Austin");
+                if(chkHouston.isChecked()) citiesChecked.add("Houston");
+                if(chkPortland.isChecked()) citiesChecked.add("Portland");
+                if(chkPittsburgh.isChecked()) citiesChecked.add("Pittsburgh");
+                if(chkOrlando.isChecked()) citiesChecked.add("Orlando");
+                if(chkTampa.isChecked()) citiesChecked.add("Tampa");
+
+                Toast.makeText(SelectCities.this, citiesChecked.toString(),
+                        Toast.LENGTH_SHORT).show();
+                if(citiesChecked.size() !=5){
+                    Toast.makeText(getBaseContext(), "You should select exactly 5 cities", Toast.LENGTH_LONG).show();
+                }
+        }
         });
 
         showWeather.setOnClickListener(new View.OnClickListener() {
@@ -94,11 +108,6 @@ public class SelectCities extends AppCompatActivity {
             //Run when button is clicked
             @Override
             public void onClick(View v) {
-
-
-
-
-
                 if(citiesChecked.size()==5){
                     Intent intent = new Intent(SelectCities.this, WebviewActivity.class);
                     intent.putExtra("citiesSelected",citiesChecked);

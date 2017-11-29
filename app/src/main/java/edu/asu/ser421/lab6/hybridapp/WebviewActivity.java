@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class WebviewActivity extends AppCompatActivity {
     private String tag = "mytag";
-    WebView browser;
+    static WebView browser;
     ArrayList<String> citesList;
     public static String thirdCity="";
 
@@ -78,7 +78,8 @@ public class WebviewActivity extends AppCompatActivity {
 
     public void clearStorage()
     {
-        browser.evaluateJavascript("clearLocalStorage()",null);
+        Log.i(tag, "inside clear storage");
+        //browser.evaluateJavascript("clearLocalStorage()",null);
     }
 }
 

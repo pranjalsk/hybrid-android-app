@@ -2,7 +2,6 @@ function clearLocalStorage(){
 console.log("Inside locl stg clr");
     localStorage.clear();
 }
-//localStorage.clear();
 function initTable(reqURL, rowid) {
   			var xhttp = new XMLHttpRequest();
 
