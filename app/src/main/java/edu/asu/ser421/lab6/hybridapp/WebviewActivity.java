@@ -68,19 +68,6 @@ public class WebviewActivity extends AppCompatActivity {
     }
 
 
-
-    @Override
-    public void onResume(){
-        super.onResume();
-        Toast.makeText(getBaseContext(), "inside resume", Toast.LENGTH_SHORT);
-    }
-
-
-    public void clearStorage()
-    {
-        Log.i(tag, "inside clear storage");
-        //browser.evaluateJavascript("clearLocalStorage()",null);
-    }
 }
 
 class WebAppInterface {
