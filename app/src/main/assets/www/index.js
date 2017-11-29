@@ -355,7 +355,6 @@ function initTable(reqURL, rowid) {
 		}
 
 
-
 		function getThirdCity(){
 		    var thirdcity = "";
 		    if (document.getElementById('thirdcity') != null) {

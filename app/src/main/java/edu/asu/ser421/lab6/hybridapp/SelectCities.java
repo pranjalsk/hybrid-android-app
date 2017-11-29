@@ -16,7 +16,7 @@ public class SelectCities extends AppCompatActivity {
 
     private CheckBox chkDenver, chkChicago, chkBoston,chkSeattle,chkAustin,chkHouston, chkPortland,
             chkPittsburgh,chkOrlando,chkTampa;
-    private Button showWeather,btnDenver,btnChicago,btnBoston,btnSeattle,btnAustin,btnHouston, btnPortland,
+    private Button showWeather,btnChange,btnDenver,btnChicago,btnBoston,btnSeattle,btnAustin,btnHouston, btnPortland,
     btnPittsburgh,btnOrlando,btnTampa;
     ArrayList<String> citiesChecked;
     private String tag = "mytag";
@@ -61,7 +61,22 @@ public class SelectCities extends AppCompatActivity {
         btnTampa = (Button) findViewById(R.id.btnTampa);
 
 
+        btnChange.setOnClickListener({
+                citiesChecked =  new ArrayList<String>();
+        if(chkDenver.isChecked()) citiesChecked.add("Denver");
+        if(chkChicago.isChecked()) citiesChecked.add("Chicago");
+        if(chkBoston.isChecked()) citiesChecked.add("Boston");
+        if(chkSeattle.isChecked()) citiesChecked.add("Seattle");
+        if(chkAustin.isChecked()) citiesChecked.add("Austin");
+        if(chkHouston.isChecked()) citiesChecked.add("Houston");
+        if(chkPortland.isChecked()) citiesChecked.add("Portland");
+        if(chkPittsburgh.isChecked()) citiesChecked.add("Pittsburgh");
+        if(chkOrlando.isChecked()) citiesChecked.add("Orlando");
+        if(chkTampa.isChecked()) citiesChecked.add("Tampa");
 
+        Toast.makeText(SelectCities.this, citiesChecked.toString(),
+                Toast.LENGTH_SHORT).show();
+        });
 
         showWeather.setOnClickListener(new View.OnClickListener() {
 
@@ -69,20 +84,9 @@ public class SelectCities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                citiesChecked =  new ArrayList<String>();
-                if(chkDenver.isChecked()) citiesChecked.add("Denver");
-                if(chkChicago.isChecked()) citiesChecked.add("Chicago");
-                if(chkBoston.isChecked()) citiesChecked.add("Boston");
-                if(chkSeattle.isChecked()) citiesChecked.add("Seattle");
-                if(chkAustin.isChecked()) citiesChecked.add("Austin");
-                if(chkHouston.isChecked()) citiesChecked.add("Houston");
-                if(chkPortland.isChecked()) citiesChecked.add("Portland");
-                if(chkPittsburgh.isChecked()) citiesChecked.add("Pittsburgh");
-                if(chkOrlando.isChecked()) citiesChecked.add("Orlando");
-                if(chkTampa.isChecked()) citiesChecked.add("Tampa");
 
-                Toast.makeText(SelectCities.this, citiesChecked.toString(),
-                        Toast.LENGTH_SHORT).show();
+
+
 
                 if(citiesChecked.size()==5){
                     Intent intent = new Intent(SelectCities.this, WebviewActivity.class);
