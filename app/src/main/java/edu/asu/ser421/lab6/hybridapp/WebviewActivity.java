@@ -73,7 +73,18 @@ public class WebviewActivity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         Toast.makeText(getBaseContext(), "inside resume", Toast.LENGTH_SHORT);
+    }
 
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        //Do whatever you want to do when the application is destroyed.
+        browser.setWebViewClient(new WebViewClient() {
+            public void onPageFinished(WebView view, String url) {
+                browser.evaluateJavascript("clearLocalStorage()",null);
+            }
+        });
     }
 }
 

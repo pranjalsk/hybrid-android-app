@@ -1,4 +1,6 @@
-
+function clearLocalStorage(){
+    localStorage.clear();
+}
 function initTable(reqURL, rowid) {
   			var xhttp = new XMLHttpRequest();
 
