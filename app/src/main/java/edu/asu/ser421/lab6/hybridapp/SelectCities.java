@@ -259,32 +259,62 @@ public class SelectCities extends AppCompatActivity {
         switch (cityname){
             case "Denver":
                 chkDenver.setEnabled(false);
+                if(!chkDenver.isChecked()){
+                    chkDenver.setChecked(true);
+                }
                 break;
             case "Chicago":
                 chkChicago.setEnabled(false);
+                if(!chkChicago.isChecked()){
+                    chkChicago.setChecked(true);
+                }
                 break;
             case "Boston":
                 chkBoston.setEnabled(false);
+                if(!chkBoston.isChecked()){
+                    chkBoston.setChecked(true);
+                }
                 break;
             case "Seattle":
                 chkSeattle.setEnabled(false);
+                if(!chkSeattle.isChecked()){
+                    chkSeattle.setChecked(true);
+                }
                 break;
             case "Austin":
                 chkAustin.setEnabled(false);
+                if(!chkAustin.isChecked()){
+                    chkAustin.setChecked(true);
+                }
                 break;
             case "Houston":
                 chkHouston.setEnabled(false);
+                if(!chkHouston.isChecked()){
+                    chkHouston.setChecked(true);
+                }
                 break;
             case "Portland":
+                if(!chkPortland.isChecked()){
+                    chkPortland.setChecked(true);
+                }
                 chkPortland.setEnabled(false);
                 break;
             case "Pittsburgh":
+                if(!chkPittsburgh.isChecked()){
+                    chkPittsburgh.setChecked(true);
+                }
                 chkPittsburgh.setEnabled(false);
                 break;
             case "Orlando":
+                if(!chkOrlando.isChecked()){
+                    chkOrlando.setChecked(true);
+                }
                 chkOrlando.setEnabled(false);
                 break;
             case "Tampa":
+                if(!chkTampa.isChecked()){
+                    chkTampa.setChecked(true);
+                }
                 chkTampa.setEnabled(false);
                 break;
         }
