@@ -96,11 +96,9 @@ public class SelectCities extends AppCompatActivity {
                 if(chkOrlando.isChecked()) citiesChecked.add("Orlando");
                 if(chkTampa.isChecked()) citiesChecked.add("Tampa");
 
-                Toast.makeText(SelectCities.this, citiesChecked.toString(),
-                        Toast.LENGTH_SHORT).show();
                 if(citiesChecked.size() == 5){
                     currentcities = citiesChecked;
-
+                    Toast.makeText(SelectCities.this, "You selected "+citiesChecked.toString(), Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getBaseContext(), "You should select exactly 5 cities", Toast.LENGTH_LONG).show();
                 }
